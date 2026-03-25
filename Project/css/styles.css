@@ -8,10 +8,10 @@ body {
 }
 .chat-container {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 700px;
-    height: 800px;
+    bottom: 0px;
+    right: 0px;
+    width: 900px;
+    height: 670px;
     z-index: 1000;
 }
 
