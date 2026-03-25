@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Chat App with games">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chat App</title>
+
+        <link rel="stylesheet" href="css/styles.css">
+
+        <script type = "module">
+            import setup from './js/chat.js';
+            
+            setup();
+        </script>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+            </ul>
+        </nav>
+        <div class="chat-container">
+            <div class="chat-box">
+                <div class="messages"></div>
+                <input type="text" class="message-input" placeholder="Type your message...">
+                
+                <div class="wrapper">
+                    <img class="send-button" src="images/sendbutton.png" />
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
