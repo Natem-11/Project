@@ -72,6 +72,14 @@ body {
 }
 
 .chat-container-login{
+    color: #6b1d1d;
+    background-color: rgb(196, 30, 58);
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    font-size: 2rem;
+    font-family:'Courier New', Courier, monospace
 }
     
 body {
