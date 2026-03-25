@@ -69,9 +69,12 @@ body {
 body {
     background-color: white ;
 }
-.main-ul {
+.main-ul ul {
     list-style: none;
     text-align: center;
     padding: 0;
     margin: 0;
+}
+.main-ul li {
+    display: inline;
 }
