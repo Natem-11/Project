@@ -8,10 +8,10 @@ body {
 }
 .chat-container {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 700px;
-    height: 800px;
+    bottom: 0px;
+    right: 0px;
+    width: 900px;
+    height: 670px;
     z-index: 1000;
 }
 
@@ -20,7 +20,7 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: white;
     border: 3px solid black;
 }
 
@@ -72,5 +72,14 @@ body {
 }
 
 .chat-container-login{
+}
     
+body {
+    background-color: white ;
+}
+.main-ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
 }
