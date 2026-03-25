@@ -20,7 +20,7 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: white;
     border: 3px solid black;
 }
 
@@ -65,4 +65,13 @@ form-error.hidden {
 
 .form-text{
     
+}
+body {
+    background-color: white ;
+}
+.main-ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
 }
