@@ -55,7 +55,7 @@ body {
 
 }
 
-form-error.hidden {
+.hidden {
     display: none;
 }
 
@@ -64,5 +64,5 @@ form-error.hidden {
 }
 
 .form-text{
-    
+
 }
