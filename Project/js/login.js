@@ -1,9 +1,9 @@
 const correctUsername = "nathangoestohill";
-const correctPassword = "nathan12345678";
+const correctPassword = "1";
 
 const login = (username, password, errorDiv) => {
     if (username === correctUsername && password === correctPassword){
-        window.location.href = 'index.html';
+        window.location.href = 'main.html';
     } else{
         errorDiv.classList.remove('hidden');
     }
