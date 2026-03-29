@@ -91,7 +91,7 @@ body {
 body {
     background-color: white ;
 }
-.main-ul {
+.main-ul ul {
     list-style: none;
     text-align: center;
     padding: 0;
@@ -109,3 +109,7 @@ body {
 .nav-links a:hover {
     background-color: #ddd;
 } */
+
+.main-ul li {
+    display: inline;
+}
