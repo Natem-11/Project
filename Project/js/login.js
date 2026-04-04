@@ -20,4 +20,8 @@ const setup = () => {
     });
 }
 
+//base set up for a log in page
+//next steps are to add a sign up page and way to send the passwords 
+// and usernames to the server
+
 export default setup;
