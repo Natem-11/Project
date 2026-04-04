@@ -8,7 +8,7 @@ Project Rubix is a communication web application designed to help users connect 
 ## Structure of our Code 
 The structure of our Project Rubix code is simple, the main page users will start on is the indeix.html, where users can either log in as a returning user or sign up, which will redirect them to registration.html
 
-After getting past that part, users will be on the main.html, which is the chat, this chat will include group chats, people you have dmed, and buttons on the top that can navigate you to the settings page, rubix+ page, and the bug report page.
+After getting past that part, users will be on the main.html, which is the chat, this chat will include group chats, people you have dmed, and buttons on the top that can navigate you to the settings page, rubix+ page, and the bug report page. From main.html you can navigate to settings.html, bugreport.html and rubix+.html.
 
 Settings page also has the options to redirect you back to the main.html, rubix+.html and bugreport.html, settings will also include a way to update your profile picture through pre installed images, notification settings, brightness settings and more features coming later
 
