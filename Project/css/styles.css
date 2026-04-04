@@ -1,21 +1,28 @@
+/* ===== GLOBAL STYLES ===== */
 * {
     box-sizing: border-box;
 }
 
+/* Body styling for the entire page */
 body {
     font-size: 1.4rem;
-    font-family:'Courier New', Courier, monospace
+    font-family:'Courier New', Courier, monospace;
+    background-color: white;
 }
+
+/* ===== CHAT CONTAINER STYLES ===== */
+/* Main chat container - positioned in the center of the screen */
 .chat-container {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); /* Centers the container */
     width: 900px;
     height: 670px;
     z-index: 1000;
 }
 
+/* Chat box content wrapper */
 .chat-box {
     width: 100%;
     height: 100%;
@@ -25,6 +32,7 @@ body {
     border: 3px solid black;
 }
 
+/* Messages display area - scrollable */
 .messages {
     flex: 1;
     overflow-y: scroll;
@@ -32,6 +40,7 @@ body {
     border-bottom: 1px solid #eee;
 }
 
+/* Message input field styling */
 .message-input {
     padding: 10px 15px;
     border: none;
@@ -40,40 +49,49 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
-.wrapper{
+/* Wrapper for flexible layout */
+.wrapper {
     display: flex;
     justify-content: flex-end;
 }
 
+/* Send button styling */
 .send-button {
     inline-size: 2em;
     margin-block-start: 10px;
     cursor: pointer;
+}
+
+/* ===== FORM STYLES ===== */
+/* Form elements styling (currently empty) */
+.form-element {
 
 }
 
-.form-element{
-
-}
-
+/* Hidden utility class */
 .hidden {
     display: none;
 }
 
-.form-label{
+/* Form labels styling (currently empty) */
+.form-label {
 
 }
 
-.form-text{
+/* Form text styling (currently empty) */
+.form-text {
 
 }
 
-.login-wrapper{
+/* ===== LOGIN SECTION STYLES ===== */
+/* Login wrapper - constrains login form width */
+.login-wrapper {
     max-inline-size: 600px;
     margin-inline: auto;
 }
 
-.chat-container-login{
+/* Login container styling - red background login form */
+.chat-container-login {
     display: flex;
     flex-direction: column;
     background-color: rgb(196, 30, 58);
@@ -87,10 +105,9 @@ body {
     font-family:'Courier New', Courier, monospace;
     color: black;
 }
-    
-body {
-    background-color: white ;
-}
+
+/* ===== NAVIGATION STYLES ===== */
+/* Main navigation list styling */
 .main-ul ul {
     list-style: none;
     text-align: center;
@@ -98,7 +115,13 @@ body {
     margin: 0;
 }
 
-/* .nav-links a {
+/* Navigation list items displayed inline */
+.main-ul li {
+    display: inline;
+}
+
+/* Commented out nav link hover styles
+.nav-links a {
     color: #333;
     font-weight: bold;
     padding: 6px 10px;
@@ -109,7 +132,3 @@ body {
 .nav-links a:hover {
     background-color: #ddd;
 } */
-
-.main-ul li {
-    display: inline;
-}
