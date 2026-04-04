@@ -10,7 +10,7 @@ body {
     background-color: white;
 }
 
-/* ===== CHAT CONTAINER STYLES ===== */
+/*  CHAT CONTAINER STYLES  */
 /* Main chat container - positioned in the center of the screen */
 .chat-container {
     position: fixed;
@@ -63,7 +63,7 @@ body {
 }
 
 /* ===== FORM STYLES ===== */
-/* Form elements styling (currently empty) */
+/* Form elements styling */
 .form-element {
 
 }
@@ -73,12 +73,12 @@ body {
     display: none;
 }
 
-/* Form labels styling (currently empty) */
+/* Form labels styling */
 .form-label {
 
 }
 
-/* Form text styling (currently empty) */
+/* Form text styling\ */
 .form-text {
 
 }
@@ -120,7 +120,7 @@ body {
     display: inline;
 }
 
-/* Commented out nav link hover styles
+/* nav link hover styles
 .nav-links a {
     color: #333;
     font-weight: bold;
