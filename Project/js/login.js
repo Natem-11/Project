@@ -13,10 +13,10 @@
 				event.preventDefault(); // Prevent refresh
 				const username = this.usernameInput.value;
 				const password = this.passwordInput.value;
-				await this.validateCredentials(username, password);
+				await this.validate(username, password);
 			}
 
-			async validateCredentials(username, password) {
+			async validate(username, password) {
 				const response = await fetch('./data/credentials.json');
 				const isResponseOk = await response.ok;
 				if (isResponseOk) {
