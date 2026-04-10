@@ -9,15 +9,14 @@
         <link rel="stylesheet" href="./css/styles.css" />
 
         <script type="module">
-            import setup from './js/login.js';
-
-            setup();
+            import App from './js/login.js';
+            new App();
         </script>
     </head>
     <body>
         <div class="login-wrapper">
             <main>
-                <form>
+                <form id="login">
                     <div class="chat-container-login">
                     <!-- form for the login poriton -- will be modifying this and setting page over break - Kevin 
                       <form id="add-post" disabled>
@@ -27,7 +26,7 @@
                         <button class="form-button">Submit Post</button>
                     </form> -->
                     <div class="form-error hidden" id="error-message">
-                        <p>Invalid Username or Password</p>
+                        <p>Invalid Username or Password, please try again.</p>
                     </div>
                     <div class="form-element">
                         <label class="form-label" for="username">Username</label>
@@ -38,7 +37,7 @@
                         <input class="form-text" type="password" name="password" id="password" />
                     </div>
                     <div class="form-element">
-                        <button class="login-button" type="button" id="login">Login</button>
+                        <button class="login-button" type="submit">Login</button>
                     </div>
                     <div class="sign-up">
                         <button class="sign-up-button" type="button" id="sign-up">Sign Up</button>

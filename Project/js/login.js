@@ -1,27 +1,36 @@
-const correctUsername = "nathangoestohill";
-const correctPassword = "1";
+		class App {
+			constructor() {
+				this.usernameInput = document.querySelector("#username");
+				this.passwordInput = document.querySelector("#password");
+				this.errorMessage = document.querySelector("#error-message");
+				this.form = document.querySelector("#login");
+				if (this.form) {
+					this.form.addEventListener('submit', this.login.bind(this));
+				}
+			}
 
-const login = (username, password, errorDiv) => {
-    if (username === correctUsername && password === correctPassword){
-        window.location.href = 'main.html';
-    } else{
-        errorDiv.classList.remove('hidden');
-    }
-}
+			async login(event) {
+				event.preventDefault(); // Prevent refresh
+				const username = this.usernameInput.value;
+				const password = this.passwordInput.value;
+				await this.validateCredentials(username, password);
+			}
 
-const setup = () => {
-    const loginButton = document.querySelector('#login');
-    loginButton.addEventListener('click', () => {
-        const username = document.querySelector('#username').value;
-        const password = document.querySelector('#password').value;
-        const errorDiv = document.querySelector('#error-message');
+			async validateCredentials(username, password) {
+				const response = await fetch('./data/credentials.json');
+				const isResponseOk = await response.ok;
+				if (isResponseOk) {
+					const credentials = await response.json();
+					if (username === credentials.username && password === credentials.password) {
+						window.location.href = "main.html";
+					} else {
+						this.errorMessage.classList.remove("hidden"); // show error message
+					}
+				} else {
+					this.errorMessage.textContent = "Login error. Please try again later, server may be down.";
+					this.errorMessage.classList.remove("hidden"); 
+				}
+			}
+		}
 
-        login(username, password, errorDiv);
-    });
-}
-
-//base set up for a log in page
-//next steps are to add a sign up page and way to send the passwords 
-// and usernames to the server
-
-export default setup;
+		export default App;
