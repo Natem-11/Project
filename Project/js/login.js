@@ -10,7 +10,7 @@
 			}
 
 			async login(event) {
-				event.preventDefault(); // Prevent refresh
+				event.preventDefault();	
 				const username = this.usernameInput.value;
 				const password = this.passwordInput.value;
 				await this.validate(username, password);
@@ -24,7 +24,7 @@
 					if (username === credentials.username && password === credentials.password) {
 						window.location.href = "main.html";
 					} else {
-						this.errorMessage.classList.remove("hidden"); // show error message
+						this.errorMessage.classList.remove("hidden");
 					}
 				} else {
 					this.errorMessage.textContent = "Login error. Please try again later, server may be down.";
