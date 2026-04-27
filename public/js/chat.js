@@ -1,5 +1,6 @@
 function setup() {
     chat();
+    setupMessaging();
 
 }
 
@@ -28,11 +29,17 @@ const conversations = [
 ];
 
 function chat() {
+    const list = document.querySelector('.messages-list');
+    conversations.forEach(conv => {
+        createConversationItem(list, conv);
+    });
 
+}
 
+function createConversationItem(list, conv) {
     const convo = document.createElement('div');
     convo.className = 'conversation';
-    convo.id = 'conv1';
+    convo.id = conv.id;
 
     const avatar = document.createElement('div');
     avatar.className = "convo-avatar";
@@ -63,8 +70,32 @@ function chat() {
     badge.textContent = conv.unread;
     convo.appendChild(badge);
     }
+    
 
     convo.appendChild(info);
+    list.appendChild(convo);
+    
+
 }
+
+function setupMessaging() {
+    const input = document.querySelector('.message-input');
+    const sendButton = document.querySelector('.send-button');
+    const messagesContainer = document.querySelector('.messages');
+    function sendMessage() {
+      const text = input.value;
+        if (text === ''){
+          return;
+        } 
+        const message = document.createElement('div');
+        message.className = 'message outgoing';
+        message.textContent = text;
+        messagesContainer.appendChild(message);
+        input.value = '';
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    sendButton.addEventListener('click', sendMessage);
+  }
 
 export default setup;
