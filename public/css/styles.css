@@ -22,46 +22,6 @@ body {
     z-index: 1000;
 }
 
-/* Chat box content wrapper */
-.chat-box {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border: 3px solid black;
-}
-
-/* Messages display area - scrollable */
-.messages {
-    flex: 1;
-    overflow-y: scroll;
-    padding: 15px;
-    border-bottom: 1px solid #eee;
-}
-
-/* Message input field styling */
-.message-input {
-    padding: 10px 15px;
-    border: none;
-    outline: none;
-    font-size: 1rem;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-/* Wrapper for flexible layout */
-.wrapper {
-    display: flex;
-    justify-content: flex-end;
-}
-
-/* Send button styling */
-.send-button {
-    inline-size: 2em;
-    margin-block-start: 10px;
-    cursor: pointer;
-}
-
 /* ===== FORM STYLES ===== */
 /* Form elements styling */
 .form-element {
