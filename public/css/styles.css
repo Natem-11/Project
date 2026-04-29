@@ -81,8 +81,6 @@ body {
 }
 
 .logo{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: 480px;
+    width: 550px;
 }
