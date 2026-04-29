@@ -80,15 +80,9 @@ body {
     display: inline;
 }
 
-/* nav link hover styles
-.nav-links a {
-    color: #333;
-    font-weight: bold;
-    padding: 6px 10px;
-    border-radius: 5px;
-    transition: 0.7s;
+.logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
-.nav-links a:hover {
-    background-color: #ddd;
-} */
