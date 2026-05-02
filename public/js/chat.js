@@ -10,21 +10,24 @@ const conversations = [
     name: 'Alice',
     lastMessage: 'Hey, how are you?',
     timestamp: '2:30 PM',
-    unread: 2
+    unread: 2,
+    messages: ['Hey, how are you?', 'Are you there?']
   },
   {
     id: 'conv2',
     name: 'Bob',
     lastMessage: 'See you tomorrow',
     timestamp: 'Yesterday',
-    unread: 0
+    unread: 0,
+    messages: ['See you tomorrow']
   },
   {
     id: 'conv3',
     name: 'Carol',
     lastMessage: 'Thanks for the help!',
     timestamp: 'Monday',
-    unread: 1
+    unread: 1,
+    messages: ['Thanks for the help!']
   }
 ];
 
@@ -33,50 +36,38 @@ function chat() {
     conversations.forEach(conv => {
         createConversationItem(list, conv);
     });
+}
 
+function clickOnConversation(conv) {
+    const messagesContainer = document.querySelector('.messages');
+    const people = document.querySelector('.names');
+    if (people) {
+        people.textContent = conv.name;
+    }
+    messagesContainer.textContent = '';
+    conv.messages.forEach(msg => {
+        const message = document.createElement('div');
+        message.className = 'message incoming';
+        message.textContent = msg;
+        messagesContainer.appendChild(message);
+    });
 }
 
 function createConversationItem(list, conv) {
     const convo = document.createElement('div');
     convo.className = 'conversation';
     convo.id = conv.id;
-
-    const avatar = document.createElement('div');
-    avatar.className = "convo-avatar";
-    avatar.textContent = conv.name[0];
-    convo.appendChild(avatar);
-
-    const info = document.createElement('div');
-    info.className = "convo-info"
-
     const nameDiv = document.createElement('div');
     nameDiv.className = "convo-name";
     nameDiv.textContent = conv.name;
-    info.appendChild(nameDiv);
+    convo.appendChild(nameDiv);
+    convo.addEventListener('click', () => {
+        clickOnConversation(conv);
+    });
 
-    const previewDiv = document.createElement('div');
-    previewDiv.className = "convo-preview";
-    previewDiv.textContent = conv.lastMessage;
-    info.appendChild(previewDiv);
-
-    const timestampDiv = document.createElement('div');
-    timestampDiv.className = "convo-timestamp";
-    timestampDiv.textContent = conv.timestamp;
-    info.appendChild(timestampDiv);
-
-    if (conv.unread > 0) {
-    const badge = document.createElement('div');
-    badge.className = 'unread-badge';
-    badge.textContent = conv.unread;
-    convo.appendChild(badge);
-    }
-    
-
-    convo.appendChild(info);
     list.appendChild(convo);
-    
-
 }
+
 
 function setupMessaging() {
     const input = document.querySelector('.message-input');
@@ -96,6 +87,12 @@ function setupMessaging() {
     }
 
     sendButton.addEventListener('click', sendMessage);
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
   }
+
 
 export default setup;
