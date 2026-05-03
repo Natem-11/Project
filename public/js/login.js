@@ -1,36 +1,64 @@
-		class App {
-			constructor() {
-				this.usernameInput = document.querySelector("#username");
-				this.passwordInput = document.querySelector("#password");
-				this.errorMessage = document.querySelector("#error-message");
-				this.form = document.querySelector("#login");
-				if (this.form) {
-					this.form.addEventListener('submit', this.login.bind(this));
-				}
-			}
+class App {
+    constructor(){
+        this.usernameInput = document.querySelector('#username');
+        this.passwordInput = document.querySelector('#password');
+        this.errorDiv = document.querySelector('#error-message');
 
-			async login(event) {
-				event.preventDefault();	
-				const username = this.usernameInput.value;
-				const password = this.passwordInput.value;
-				await this.validate(username, password);
-			}
+        this.login = this.login.bind(this);
 
-			async validate(username, password) {
-				const response = await fetch('./data/credentials.json');
-				const isResponseOk = await response.ok;
-				if (isResponseOk) {
-					const credentials = await response.json();
-					if (username === credentials.username && password === credentials.password) {
-						window.location.href = "main.html";
-					} else {
-						this.errorMessage.classList.remove("hidden");
-					}
-				} else {
-					this.errorMessage.textContent = "Login error. Please try again later, server may be down.";
-					this.errorMessage.classList.remove("hidden"); 
-				}
-			}
-		}
+        document.querySelector('#login').addEventListener('submit', this.login);
+        
+        // sign up button redirect
+        document.querySelector('#sign-up').addEventListener('click', function(){
+            window.location.href = 'registration.html';
+        });
+    }
 
-		export default App;
+    async login(event){
+        event.preventDefault();
+
+        if(!this.usernameInput.value) {
+            this.showError("Please enter a username");
+            return;
+        }
+
+        if(!this.passwordInput.value) {
+            this.showError("Please enter a password");
+            return;
+        }
+
+        const credentials = {
+            username: this.usernameInput.value,
+            password: this.passwordInput.value
+        }
+
+        // send the credentials to the server and await the response 
+        const response = await fetch('/login', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(credentials)
+        });
+
+        const auth = await response.json();
+
+        if (auth.success){
+            sessionStorage.setItem('currentUser', credentials.username);
+            sessionStorage.setItem('firstName', auth.firstName);
+            sessionStorage.setItem('lastName', auth.lastName);
+            
+            window.location.href = 'main.html';
+        }
+        else {
+            this.showError(auth.message);
+        }
+    }
+
+    showError(message){
+        this.errorDiv.querySelector('p').textContent = message;
+        this.errorDiv.classList.remove('hidden');
+    }
+}
+
+export default App;
