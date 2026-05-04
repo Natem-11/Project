@@ -15,7 +15,7 @@ body {
      display: flex;
     flex-direction: column;
     background-color: rgb(196, 30, 58);
-    border: 1px solid black;
+    border: 3px solid black;
     border-radius: 5px;
     text-align: center;
     justify-content: center;
@@ -23,7 +23,7 @@ body {
     padding: 10px;
     font-size: 2rem;
     font-family:'Courier New', Courier, monospace;
-    color: black;
+    color: white;
     max-inline-size: 800px;
     margin-inline: auto;
 }
@@ -38,5 +38,22 @@ body {
 }
 a:hover {
     text-decoration: underline;
-    color: black;
+    color: white;
+}
+button{
+    cursor: pointer;
+    background-color: rgb(196, 30, 58);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.4rem;
+    font-family:'Courier New', Courier, monospace;
+    width: 120%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 3px;
+    margin-top: 10px;
 }
