@@ -2,12 +2,12 @@
 import express from 'express';
 import fs from 'fs';
 import credentials from './data/credentials.json' with { type: 'json' };
-import messages from './data/messages.json' with { type: 'json' };
+import messages from './data/message.json' with { type: 'json' };
 
 const app = express();
 
 app.use(express.json());
-app.use(express.static('public', { index: 'login.html' }));
+app.use(express.static('public'));
 
 // handle user login by POST
 app.post('/login', function(req, res){
