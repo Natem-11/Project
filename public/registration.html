@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="Register Page" />
 
-        <link rel="stylesheet" href="./css/styles.css" />
+        <link rel="stylesheet" href="./css/registration.css" />
 
         <script type="module">
             import App from './js/register.js';
@@ -17,7 +17,11 @@
     <body>
         <div class="login-wrapper">
             <main>
+                <div class="logo-container">
+                <img src="./images/logo.png" alt="Logo" class="logo" />
+                </div>
                 <form id="register">
+                    <div class="register-container">
                     <p class="form-error hidden" id="error-message"></p>
                     <div class="form-element">
                         <label class="form-label" for="first-name">First Name</label>
@@ -43,7 +47,8 @@
                         <button class="login-button" type="submit">Register</button>
                     </div>
                 </form>
-                <p>Already have an account? <a href="index.html">Login Here.</a></p>
+                    <p>Already have an account? <a href="index.html">Login Here.</a></p>
+                </div>
             </main>
         </div>
     </body>

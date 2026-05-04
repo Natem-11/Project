@@ -21,26 +21,10 @@ body {
     height: 670px;
     z-index: 1000;
 }
-
-/* ===== FORM STYLES ===== */
-/* Form elements styling */
-.form-element {
-
-}
-
+    
 /* Hidden utility class */
 .hidden {
     display: none;
-}
-
-/* Form labels styling */
-.form-label {
-
-}
-
-/* Form text styling\ */
-.form-text {
-
 }
 
 /* ===== LOGIN SECTION STYLES ===== */

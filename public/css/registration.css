@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-size: 1.4rem;
+    font-family:'Courier New', Courier, monospace;
+    background-color: white;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.register-container{
+     display: flex;
+    flex-direction: column;
+    background-color: rgb(196, 30, 58);
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 2rem;
+    font-family:'Courier New', Courier, monospace;
+    color: black;
+    max-inline-size: 800px;
+    margin-inline: auto;
+}
+.logo{
+    height: 380px;
+    width: 450px;
+}
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+a:hover {
+    text-decoration: underline;
+    color: black;
+}

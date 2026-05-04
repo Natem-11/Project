@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static('public'));
 
-// handle user login by POST
+
 app.post('/login', function(req, res){
     const username = req.body.username;
     const user = credentials[username];
@@ -32,7 +32,7 @@ app.post('/login', function(req, res){
     }
 });
 
-// handle user registration by POST
+
 app.post('/register', function(req, res){
     const username = req.body.username;
     const existingUser = credentials[username];
@@ -42,24 +42,24 @@ app.post('/register', function(req, res){
         return;
     }
 
-    // add new user to the credentials object
+
     credentials[username] = { 
         password: req.body.password,
         firstName: req.body.firstName,
         lastName: req.body.lastName
     };
 
-    // update the credentials.json file
+
     fs.writeFile('./data/credentials.json', JSON.stringify(credentials, null, 4), 'utf-8', function(err){
         if(err) console.log(err);
         else console.log('Credentials saved to data/credentials.json');
     });
 
-    // send a success message
+
     res.json({ success: true, message: "Registration successful." });
 });
 
-// GET the conversations list for a user
+
 app.get('/conversations', function(req, res){
     const username = req.query.username;
     
@@ -87,7 +87,7 @@ app.get('/conversations', function(req, res){
     res.json({ success: true, conversations: conversationList });
 });
 
-// GET messages between two users
+
 app.get('/messages', function(req, res){
     const user1 = req.query.user1;
     const user2 = req.query.user2;
@@ -103,7 +103,7 @@ app.get('/messages', function(req, res){
     }
 });
 
-// POST send a new message
+
 app.post('/send', function(req, res){
     const from = req.body.from;
     const to = req.body.to;
@@ -132,7 +132,7 @@ app.post('/send', function(req, res){
     res.json({ success: true, message: newMessage });
 });
 
-// GET all users list
+
 app.get('/users', function(req, res){
     let userList = [];
     
