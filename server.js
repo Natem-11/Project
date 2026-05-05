@@ -61,75 +61,50 @@ app.post('/register', function(req, res){
 
 
 app.get('/conversations', function(req, res){
-    const username = req.query.username;
-    
-    const conversationList = [];
-    
-    for(let key in messages){
-        let parts = key.split('_');
-        let user1 = parts[0];
-        let user2 = parts[1];
-        
-        if(user1 === username || user2 === username){
-            let otherUser = (user1 === username) ? user2 : user1;
-            let messageArray = messages[key];
-            let lastMessage = messageArray[messageArray.length - 1];
-            
-            conversationList.push({
-                with: otherUser,
-                firstName: credentials[otherUser] ? credentials[otherUser].firstName : otherUser,
-                lastName: credentials[otherUser] ? credentials[otherUser].lastName : '',
-                lastMessage: lastMessage ? lastMessage.text : 'No messages yet'
-            });
-        }
-    }
-    
-    res.json({ success: true, conversations: conversationList });
+    const data = JSON.parse(fs.readFileSync('./data/message.json'));
+    res.json({ success: true, conversations: data.conversations });
 });
 
 
 app.get('/messages', function(req, res){
-    const user1 = req.query.user1;
-    const user2 = req.query.user2;
+    const convId = req.query.id;
+    const data = JSON.parse(fs.readFileSync('./data/message.json'));
+    const conv = data.conversations.find(c => c.id === convId);
     
-    let users = [user1, user2].sort();
-    let key = users[0] + '_' + users[1];
-    
-    if(messages[key] === undefined){
+    if(conv) {
+        res.json({ success: true, messages: conv.messages });
+    } else {
         res.json({ success: true, messages: [] });
-    }
-    else {
-        res.json({ success: true, messages: messages[key] });
     }
 });
 
 
 app.post('/send', function(req, res){
-    const from = req.body.from;
-    const to = req.body.to;
+    const convId = req.body.convId;
     const text = req.body.text;
+    const from = req.body.from;
     
-    let users = [from, to].sort();
-    let key = users[0] + '_' + users[1];
+    const data = JSON.parse(fs.readFileSync('./data/message.json'));
+    const conv = data.conversations.find(c => c.id === convId);
     
-    let newMessage = {
-        from: from,
-        text: text,
-        timestamp: new Date().toString()
-    };
-    
-    if(messages[key] === undefined){
-        messages[key] = [];
+    if(conv) {
+        const newMessage = {
+            from: from,
+            text: text,
+            timestamp: new Date().toString()
+        };
+        conv.messages.push(newMessage);
+        conv.lastMessage = text;
+        
+        fs.writeFile('./data/message.json', JSON.stringify(data, null, 4), 'utf-8', function(err){
+            if(err) console.log(err);
+            else console.log('Message saved');
+        });
+        
+        res.json({ success: true, message: newMessage });
+    } else {
+        res.json({ success: false, message: 'Conversation not found' });
     }
-    
-    messages[key].push(newMessage);
-    
-    fs.writeFile('./data/messages.json', JSON.stringify(messages, null, 4), 'utf-8', function(err){
-        if(err) console.log(err);
-        else console.log('Message saved');
-    });
-    
-    res.json({ success: true, message: newMessage });
 });
 
 

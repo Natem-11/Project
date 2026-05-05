@@ -1,44 +1,145 @@
 {
-    "KevinS_nathangoestohill": [
+    "conversations": [
         {
-            "from": "nathangoestohill",
-            "text": "Hey Kevin! Ready to work on Project Rubix?",
-            "timestamp": "Mon May 04 2026 10:30:00"
+            "id": "conv1",
+            "name": "Alice",
+            "lastMessage": "yo",
+            "timestamp": "2:30 PM",
+            "messages": [
+                {
+                    "from": "Alice",
+                    "text": "Hey, how are you?",
+                    "timestamp": "10:30 AM"
+                },
+                {
+                    "from": "You",
+                    "text": "Hi Alice!",
+                    "timestamp": "10:31 AM"
+                },
+                {
+                    "from": "You",
+                    "text": "whats up",
+                    "timestamp": "Mon May 04 2026 21:44:18 GMT-0400 (Eastern Daylight Time)"
+                },
+                {
+                    "from": "You",
+                    "text": "yo",
+                    "timestamp": "Mon May 04 2026 21:51:07 GMT-0400 (Eastern Daylight Time)"
+                }
+            ]
         },
         {
-            "from": "KevinS",
-            "text": "Yeah Nathan! I finished the main page css design.",
-            "timestamp": "Mon May 04 2026 10:31:00"
+            "id": "conv2",
+            "name": "Bob",
+            "lastMessage": "See you tomorrow",
+            "timestamp": "Yesterday",
+            "messages": [
+                {
+                    "from": "Bob",
+                    "text": "See you tomorrow",
+                    "timestamp": "5:00 PM"
+                }
+            ]
         },
         {
-            "from": "nathangoestohill",
-            "text": "Great! Can you push me the updates?",
-            "timestamp": "Mon May 04 2026 10:32:00"
-        }
-    ],
-    "DanielA_nathangoestohill": [
-        {
-            "from": "DanielA",
-            "text": "Nathan, I need help with the bug report page.",
-            "timestamp": "Mon May 04 2026 11:00:00"
+            "id": "conv3",
+            "name": "Carol",
+            "lastMessage": "Did you finish the assignment?",
+            "timestamp": "Monday",
+            "messages": [
+                {
+                    "from": "Carol",
+                    "text": "Did you finish the assignment?",
+                    "timestamp": "9:00 AM"
+                },
+                {
+                    "from": "You",
+                    "text": "Not yet, working on it now.",
+                    "timestamp": "9:05 AM"
+                }
+            ]
         },
         {
-            "from": "nathangoestohill",
-            "text": "Sure Daniel! What's the issue?",
-            "timestamp": "Mon May 04 2026 11:05:00"
-        }
-    ],
-    "DanielA_KevinS": [
-        {
-            "from": "KevinS",
-            "text": "Daniel, want to test the chat feature?",
-            "timestamp": "Mon May 04 2026 09:15:00"
+            "id": "conv4",
+            "name": "Dave",
+            "lastMessage": "Game tonight?",
+            "timestamp": "Sunday",
+            "messages": [
+                {
+                    "from": "Dave",
+                    "text": "Game tonight?",
+                    "timestamp": "6:30 PM"
+                },
+                {
+                    "from": "You",
+                    "text": "Yeah I'm down.",
+                    "timestamp": "6:32 PM"
+                },
+                {
+                    "from": "Dave",
+                    "text": "Bet, see you there.",
+                    "timestamp": "6:33 PM"
+                }
+            ]
         },
         {
-            "from": "DanielA",
-            "text": "Yes! Let me login and we can test it.",
-            "timestamp": "Mon May 04 2026 09:16:00"
+            "id": "conv5",
+            "name": "Emma",
+            "lastMessage": "That was funny 😂",
+            "timestamp": "Saturday",
+            "messages": [
+                {
+                    "from": "Emma",
+                    "text": "That was funny 😂",
+                    "timestamp": "2:10 PM"
+                },
+                {
+                    "from": "You",
+                    "text": "I know right 😭",
+                    "timestamp": "2:12 PM"
+                }
+            ]
+        },
+        {
+            "id": "conv6",
+            "name": "Frank",
+            "lastMessage": "Check your email",
+            "timestamp": "Friday",
+            "messages": [
+                {
+                    "from": "Frank",
+                    "text": "Check your email",
+                    "timestamp": "11:45 AM"
+                },
+                {
+                    "from": "You",
+                    "text": "Just saw it, thanks.",
+                    "timestamp": "11:50 AM"
+                }
+            ]
+        },
+        {
+            "id": "conv7",
+            "name": "Grace",
+            "lastMessage": "Are we still meeting?",
+            "timestamp": "Thursday",
+            "messages": [
+                {
+                    "from": "Grace",
+                    "text": "Are we still meeting?",
+                    "timestamp": "3:00 PM"
+                },
+                {
+                    "from": "You",
+                    "text": "Yeah at 5.",
+                    "timestamp": "3:05 PM"
+                },
+                {
+                    "from": "Grace",
+                    "text": "Perfect 👍",
+                    "timestamp": "3:06 PM"
+                }
+            ]
         }
     ]
-    
 }

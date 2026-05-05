@@ -1,57 +1,98 @@
+let currentConvId = null;
+const username='You'
+
 function setup() {
-    chat();
-    setupMessaging();
+  fetchConversations();
 
-}
-
-const conversations = [
-  {
-    id: 'conv1',
-    name: 'Alice',
-    lastMessage: 'Hey, how are you?',
-    timestamp: '2:30 PM',
-    unread: 2,
-    messages: ['Hey, how are you?', 'Are you there?']
-  },
-  {
-    id: 'conv2',
-    name: 'Bob',
-    lastMessage: 'See you tomorrow',
-    timestamp: 'Yesterday',
-    unread: 0,
-    messages: ['See you tomorrow']
-  },
-  {
-    id: 'conv3',
-    name: 'Carol',
-    lastMessage: 'Thanks for the help!',
-    timestamp: 'Monday',
-    unread: 1,
-    messages: ['Thanks for the help!']
-  }
-];
-
-function chat() {
-    const list = document.querySelector('.messages-list');
-    conversations.forEach(conv => {
-        createConversationItem(list, conv);
-    });
-}
-
-function clickOnConversation(conv) {
-    const messagesContainer = document.querySelector('.messages');
-    const people = document.querySelector('.names');
-    if (people) {
-        people.textContent = conv.name;
+    document.getElementById('send-btn').addEventListener('click', () => {
+    const input = document.getElementById('compose-input');
+    const text = input.value.trim();
+    if(text && currentConvId) {
+    sendMessage('You', text);
+    input.value = '';
     }
-    messagesContainer.textContent = '';
-    conv.messages.forEach(msg => {
-        const message = document.createElement('div');
-        message.className = 'message incoming';
-        message.textContent = msg;
-        messagesContainer.appendChild(message);
     });
 }
+
+
+// const conversations = [
+//   {
+//     id: 'conv1',
+//     name: 'Alice',
+//     lastMessage: 'Hey, how are you?',
+//     timestamp: '2:30 PM',
+//     unread: 2,
+//     messages: ['Hey, how are you?', 'Are you there?']
+//   },
+//   {
+//     id: 'conv2',
+//     name: 'Bob',
+//     lastMessage: 'See you tomorrow',
+//     timestamp: 'Yesterday',
+//     unread: 0,
+//     messages: ['See you tomorrow']
+//   },
+//   {
+//     id: 'conv3',
+//     name: 'Carol',
+//     lastMessage: 'Thanks for the help!',
+//     timestamp: 'Monday',
+//     unread: 1,
+//     messages: ['Thanks for the help!']
+//   }
+// ];
+
+async function fetchConversations() {
+  const res = await fetch(`/conversations?username=${username}`);
+  const data = await res.json();
+  renderConversations(data.conversations);
+}
+
+function renderConversations(conversations) {
+  const container = document.querySelector('.messages-list');
+  container.innerHTML = '';
+  conversations.forEach(conv => {
+      createConversationItem(container, conv);
+  });
+}
+
+async function fetchMessages(convId) {
+  const res = await fetch(`/messages?id=${convId}`);
+  const data = await res.json();
+  renderMessages(data.messages);
+  currentConvId = convId; 
+}
+
+function renderMessages(messages) {
+  const container = document.querySelector('.messages');
+  container.innerHTML = '';
+
+  messages.forEach(msg => {
+      const message = document.createElement('div');
+      message.classList.add('message');
+      if(msg.from === 'You') {
+          message.classList.add('outgoing');
+      } else {
+          message.classList.add('incoming');
+      }
+
+      message.textContent = msg.text;
+      container.appendChild(message);
+  });
+}
+
+async function sendMessage(from, text) {
+  const res = await fetch(`/send`, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ convId: currentConvId, from, text })
+  });
+  const data = await res.json();
+  fetchMessages(currentConvId);
+}
+
 
 function createConversationItem(list, conv) {
     const convo = document.createElement('div');
@@ -62,37 +103,11 @@ function createConversationItem(list, conv) {
     nameDiv.textContent = conv.name;
     convo.appendChild(nameDiv);
     convo.addEventListener('click', () => {
-        clickOnConversation(conv);
+        fetchMessages(conv.id);
     });
 
     list.appendChild(convo);
 }
-
-
-function setupMessaging() {
-    const input = document.querySelector('.message-input');
-    const sendButton = document.querySelector('.send-button');
-    const messagesContainer = document.querySelector('.messages');
-    function sendMessage() {
-      const text = input.value;
-        if (text === ''){
-          return;
-        } 
-        const message = document.createElement('div');
-        message.className = 'message outgoing';
-        message.textContent = text;
-        messagesContainer.appendChild(message);
-        input.value = '';
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
-
-    sendButton.addEventListener('click', sendMessage);
-    input.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
-    });
-  }
 
 
 export default setup;

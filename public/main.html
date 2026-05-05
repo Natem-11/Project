@@ -7,12 +7,6 @@
         <title>Chat App</title>
 
         <link rel="stylesheet" href="css/main.css">
-
-        <script type = "module">
-            import setup from './js/chat.js';
-            setup();
-            
-        </script>
     </head>
     <body>
         <nav class="main-ul">
@@ -32,11 +26,15 @@
                 <div class="names"></div>
                 <div class="messages"></div>
                 <div class="wrapper">
-                    <input type="text" class="message-input" placeholder="Type your message...">
-                    <img class="send-button" src="images/sendbutton.png" />
+                    <input type="text" class="message-input" id="compose-input" placeholder="Type your message...">
+                    <img class="send-button" id="send-btn" src="images/sendbutton.png" />
                 </div>
             </main>
         </div>
+        <script type = "module">
+            import setup from './js/chat.js';
+            setup();
+    
+        </script>
     </body>
 </html>
-
