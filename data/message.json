@@ -31,13 +31,18 @@
         {
             "id": "conv2",
             "name": "Bob",
-            "lastMessage": "See you tomorrow",
+            "lastMessage": "When tomorrow?",
             "timestamp": "Yesterday",
             "messages": [
                 {
                     "from": "Bob",
                     "text": "See you tomorrow",
                     "timestamp": "5:00 PM"
+                },
+                {
+                    "from": "You",
+                    "text": "When tomorrow?",
+                    "timestamp": "Mon May 04 2026 23:02:38 GMT-0400 (Eastern Daylight Time)"
                 }
             ]
         },
@@ -121,7 +126,7 @@
         {
             "id": "conv7",
             "name": "Grace",
-            "lastMessage": "Are we still meeting?",
+            "lastMessage": "Great!",
             "timestamp": "Thursday",
             "messages": [
                 {
@@ -138,6 +143,11 @@
                     "from": "Grace",
                     "text": "Perfect 👍",
                     "timestamp": "3:06 PM"
+                },
+                {
+                    "from": "You",
+                    "text": "Great!",
+                    "timestamp": "Mon May 04 2026 23:03:29 GMT-0400 (Eastern Daylight Time)"
                 }
             ]
         }
